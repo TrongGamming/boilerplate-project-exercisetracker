@@ -33,38 +33,7 @@ let exerciseSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
-app.get("/api/users/delete", (req, res) => {
-    User.deleteMany()
-        .then((result) => {
-            res.json({
-                message: "Success delete all users",
-                result,
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.json({
-                message: "Delete all users faild",
-            });
-        });
-});
-app.get("/api/exercises/delete", (req, res) => {
-    Exercise.deleteMany()
-        .then((result) => {
-            res.json({
-                message: "Success delete all exercises",
-                result,
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.json({
-                message: "Delete all exercises faild",
-            });
-        });
-});
-
-app.get("/api/users", (req, res) => {
+p.get("/api/users", (req, res) => {
     User.find()
         .then((users) => {
             if (users.length === 0) {
